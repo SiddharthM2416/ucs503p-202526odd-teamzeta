@@ -6,9 +6,11 @@ const app = express()
 const connectDB = require('./db/connect')
 const admin = require('firebase-admin')
 const serviceAccount = require('./serviceAccount.json')
+
 //routers
 const authRouter  = require('./routes/authRouter')
 const transactionsRouter = require('./routes/transactionRouter')
+const aiRouter = require('./routes/aiRouter') // <-- 1. IMPORT NEW ROUTER
 
 // Initialize Firebase Admin (do this ONCE in your main index.js/server.js)
 admin.initializeApp({
@@ -23,10 +25,10 @@ app.use(cors());
 // //routes
 // app.use('/app/v1/auth',authRouter)
 app.use('/api/transactions',transactionsRouter)
-
+app.use('/api', aiRouter) // <-- 2. USE NEW ROUTER
 
 //server
-const port =3000;
+const port = 3000;
 const start = async()=>{
     try {
         await connectDB(process.env.MONGO_URI)
