@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "outputDirectory": "Frontend/dist",
   "builds": [
     {
       "src": "backend/app.js",
@@ -21,7 +20,7 @@
     },
     {
       "source": "/(.*)",
-      "destination": "/index.html" 
+      "destination": "/Frontend/dist/index.html"
     }
   ]
 }
