@@ -9,18 +9,18 @@
       "src": "Frontend/package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "dist"
+        "distDir": "Frontend/dist"
       }
     }
   ],
-  "rewrites": [
+  "routes": [
     {
-      "source": "/api/(.*)",
-      "destination": "/backend/index.js"
+      "src": "/api/(.*)",
+      "dest": "backend/index.js"
     },
     {
-      "source": "/(.*)",
-      "destination": "/Frontend/dist/index.html"
+      "src": "/(.*)",
+      "dest": "Frontend/dist/index.html"
     }
   ]
 }
