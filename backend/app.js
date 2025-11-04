@@ -6,7 +6,7 @@ const app = express()
 const connectDB = require('./db/connect')
 const admin = require('firebase-admin')
 // const serviceAccount = require('./serviceAccount.json')
-
+const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
 //routers
 const authRouter  = require('./routes/authRouter')
 const transactionsRouter = require('./routes/transactionRouter')
@@ -14,7 +14,7 @@ const aiRouter = require('./routes/aiRouter') // <-- 1. IMPORT NEW ROUTER
 
 // Initialize Firebase Admin (do this ONCE in your main index.js/server.js)
 admin.initializeApp({
-  credential: admin.credential.cert(process.env.GOOGLE_APPLICATION_CREDENTIALS)
+  credential: admin.credential.cert(serviceAccount)
 });
 
 //middleware
