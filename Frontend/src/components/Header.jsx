@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import icon from '../assets/profile-icon.png';
 import Profile from './Profile';
-import { auth } from '../firebase';
+import { auth } from '../firebase.js';
 // import bell from './assets/bell 1.png'
 
 function Header({income, expense, displayName}) {

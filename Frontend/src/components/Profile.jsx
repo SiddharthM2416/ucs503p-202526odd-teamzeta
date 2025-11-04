@@ -1,6 +1,6 @@
 import React from 'react'
 import icon from '../assets/close-icon.png';
-import {auth} from '../firebase';
+import {auth} from '../firebase.js';
 
 function Profile({onCloseProfile}) {
     const user = auth.currentUser;
