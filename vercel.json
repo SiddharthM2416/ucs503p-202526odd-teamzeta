@@ -1,8 +1,9 @@
 {
   "version": 2,
+  "outputDirectory": "Frontend/dist",
   "builds": [
     {
-      "src": "backend/index.js",
+      "src": "backend/app.js",
       "use": "@vercel/node"
     },
     {
@@ -13,17 +14,14 @@
       }
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "^/api/(.*)",
-      "dest": "backend/index.js"
+      "source": "/api/(.*)",
+      "destination": "/backend/app.js"
     },
     {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "Frontend/dist/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html" 
     }
   ]
 }
